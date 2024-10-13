@@ -1,0 +1,10 @@
+<ActionBar [title]="article?.title || 'News Details'"></ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <Label [text]="article?.title" class="text-2xl font-bold mb-2"></Label>
+    <Label [text]="'Published: ' + (article?.publishedAt | date:'medium')" class="text-sm text-gray-500 mb-4"></Label>
+    <Label [text]="article?.content" class="text-base mb-4" textWrap="true"></Label>
+    <Button text="Read Full Article" (tap)="openArticleUrl()" class="btn btn-primary"></Button>
+  </StackLayout>
+</ScrollView>

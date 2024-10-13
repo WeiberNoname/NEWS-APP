@@ -1,0 +1,16 @@
+<ActionBar title="News Headlines"></ActionBar>
+
+<GridLayout>
+  <ListView [items]="newsArticles" class="list-group" *ngIf="!errorMessage">
+    <ng-template let-article="item">
+      <StackLayout [nsRouterLink]="['/news', article.id]" class="list-group-item">
+        <Label [text]="article.title" class="text-lg font-bold p-2"></Label>
+        <Label [text]="article.description" class="text-sm text-gray-500 p-2"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+  <StackLayout *ngIf="errorMessage" class="p-4">
+    <Label [text]="errorMessage" class="text-lg text-red-500"></Label>
+    <Button text="Retry" (tap)="fetchNews()" class="btn btn-primary mt-4"></Button>
+  </StackLayout>
+</GridLayout>
